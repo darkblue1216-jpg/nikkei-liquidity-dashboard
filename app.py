@@ -204,7 +204,7 @@ def make_chart(s, title, yaxis_title, color, hlines=None, bar=False, zero_line=F
             fig.add_hline(y=0, line_color="#555", line_width=1)
 
     fig.update_layout(
-        title=dict(text=title, font=dict(size=12)),
+        title=dict(text=title, font=dict(size=13, color="#e6edf3"), pad=dict(b=10)),
         yaxis_title=yaxis_title,
         height=280,
         margin=dict(l=50, r=20, t=40, b=30),
