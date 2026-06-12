@@ -177,6 +177,12 @@ def get_alert(data):
 # ============================================================
 # チャート生成
 # ============================================================
+def hex_to_rgba(hex_color, alpha=0.15):
+    """HEXカラーをrGBA文字列に変換"""
+    h = hex_color.lstrip("#")
+    r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+    return f"rgba({r},{g},{b},{alpha})"
+
 def make_chart(s, title, yaxis_title, color, hlines=None, bar=False, zero_line=False):
     fig = go.Figure()
     if s.empty:
@@ -188,7 +194,7 @@ def make_chart(s, title, yaxis_title, color, hlines=None, bar=False, zero_line=F
         else:
             fig.add_trace(go.Scatter(x=s.index, y=s.values, mode="lines",
                                      line=dict(color=color, width=1.5),
-                                     fill="tozeroy", fillcolor=color + "26",
+                                     fill="tozeroy", fillcolor=hex_to_rgba(color),
                                      name=title))
         if hlines:
             for y, c, label in hlines:
