@@ -188,7 +188,7 @@ def make_chart(s, title, yaxis_title, color, hlines=None, bar=False, zero_line=F
         else:
             fig.add_trace(go.Scatter(x=s.index, y=s.values, mode="lines",
                                      line=dict(color=color, width=1.5),
-                                     fill="tozeroy", fillcolor=color.replace(")", ",0.15)").replace("rgb", "rgba") if "rgb" in color else color + "26",
+                                     fill="tozeroy", fillcolor=color + "26",
                                      name=title))
         if hlines:
             for y, c, label in hlines:
